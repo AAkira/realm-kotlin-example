@@ -24,4 +24,9 @@ android {
             isMinifyEnabled = false
         }
     }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+        useIR = true
+    }
 }

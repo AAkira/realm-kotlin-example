@@ -1,9 +1,10 @@
 package com.github.aakira.realmexample.androidApp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.github.aakira.realmexample.shared.Greeting
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.github.aakira.realmexample.shared.Database
+import com.github.aakira.realmexample.shared.Greeting
 
 fun greet(): String {
     return Greeting().greeting()
@@ -15,6 +16,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val tv: TextView = findViewById(R.id.text_view)
-        tv.text = greet()
+
+        Database.addPerson("abc", 20)
+        val person = Database.queryPerson("abc")
+        tv.text = person.toString()
     }
 }
